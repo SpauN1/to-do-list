@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+		integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<title>Приложение To-Do List</title>
+</head>
+
+<body>
+	<div class="todo">
+		<h1>Мои списки дел <span id="pensil" class="fas fa-pencil-alt"></span></h1>
+		<input type="text" placeholder="Добавить список">
+		<ul class="todos">
+			<li><span class="todo-text">Прогулка на велосипеде</span><span class="todo-trash"><span
+						class="fas fa-trash-alt"></span></span>
+			</li>
+			<li><span class="todo-text">Пойти в кино</span><span class="todo-trash"><span
+						class="fas fa-trash-alt"></span></span>
+			</li>
+		</ul>
+		<div class="buttons">
+			<button class="buttons__save">Сохранить</button>
+			<button class="buttons__clear">Очистить</button>
+			<button class="buttons__show-tips">Справка</button>
+		</div>
+	</div>
+	<div id="overlay">
+		<a href="#" class="overlay__close-tips">&times;</a>
+		<ul class="tips">
+			<li>Чтобы спрятать или показать поле ввода, кликните на карандаш</li>
+			<li>Для добавления списка дел напишите текст в поле ввода и нажмите Ввод</li>
+			<li>Чтобы удалить один пункт, наведите на него и нажмите на значок корзины</li>
+			<li>Чтобы удалить все списки дел, нажмите "Очистить"</li>
+			<li>Нажмите "Сохранить", чтобы сохранить список дел на потом</li>
+		</ul>
+	</div>
+</body>
+
+</html>
