@@ -13,8 +13,8 @@
 
 <body>
 	<div class="todo">
-		<h1>Мои списки дел <span id="pensil" class="fas fa-pencil-alt"></span></h1>
-		<input type="text" placeholder="Добавить список">
+		<h1 class="title">Мои списки дел <span id="pensil" class="fas fa-pencil-alt"></span></h1>
+		<input class="input" type="text" placeholder="Добавить список">
 		<ul class="todos">
 			<li><span class="todo-text">Прогулка на велосипеде</span><span class="todo-trash"><span
 						class="fas fa-trash-alt"></span></span>
@@ -24,12 +24,12 @@
 			</li>
 		</ul>
 		<div class="buttons">
-			<button class="buttons__save">Сохранить</button>
-			<button class="buttons__clear">Очистить</button>
-			<button class="buttons__show-tips">Справка</button>
+			<button class="button button__save">Сохранить</button>
+			<button class="button button__clear">Очистить</button>
+			<button class="button button__show-tips">Справка</button>
 		</div>
 	</div>
-	<div id="overlay">
+	<div class="overlay">
 		<a href="#" class="overlay__close-tips">&times;</a>
 		<ul class="tips">
 			<li>Чтобы спрятать или показать поле ввода, кликните на карандаш</li>
