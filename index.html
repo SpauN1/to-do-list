@@ -12,32 +12,34 @@
 </head>
 
 <body>
-	<div class="todo">
-		<h1 class="title">Мои списки дел <span id="pensil" class="fas fa-pencil-alt"></span></h1>
-		<input class="input" type="text" placeholder="Добавить список">
-		<ul class="todos">
-			<li><span class="todo-text">Прогулка на велосипеде</span><span class="todo-trash"><span
-						class="fas fa-trash-alt"></span></span>
-			</li>
-			<li><span class="todo-text">Пойти в кино</span><span class="todo-trash"><span
-						class="fas fa-trash-alt"></span></span>
-			</li>
-		</ul>
-		<div class="buttons">
-			<button class="button button__save">Сохранить</button>
-			<button class="button button__clear">Очистить</button>
-			<button class="button button__show-tips">Справка</button>
+	<div class="wrapper">
+		<div class="todo">
+			<h1 class="title">Мои списки дел <span id="pensil" class="fas fa-pencil-alt"></span></h1>
+			<input class="input" type="text" placeholder="Добавить список">
+			<ul class="todos">
+				<li><span class="todo-text">Прокатиться на велосипеде</span><span class="todo-trash"><span
+							class="fas fa-trash-alt"></span></span>
+				</li>
+				<li><span class="todo-text">Пойти в кино</span><span class="todo-trash"><span
+							class="fas fa-trash-alt"></span></span>
+				</li>
+			</ul>
+			<div class="buttons">
+				<button class="button button__save">Сохранить</button>
+				<button class="button button__clear">Очистить</button>
+				<button class="button button__show-tips">Справка</button>
+			</div>
 		</div>
-	</div>
-	<div class="overlay">
-		<a href="#" class="overlay__close-tips">&times;</a>
-		<ul class="tips">
-			<li>Чтобы спрятать или показать поле ввода, кликните на карандаш</li>
-			<li>Для добавления списка дел напишите текст в поле ввода и нажмите Ввод</li>
-			<li>Чтобы удалить один пункт, наведите на него и нажмите на значок корзины</li>
-			<li>Чтобы удалить все списки дел, нажмите "Очистить"</li>
-			<li>Нажмите "Сохранить", чтобы сохранить список дел на потом</li>
-		</ul>
+		<div class="overlay">
+			<a href="#" class="overlay__close-tips">&times;</a>
+			<ul class="tips">
+				<li>Чтобы спрятать или показать поле ввода, кликните на карандаш</li>
+				<li>Для добавления списка дел напишите текст в поле ввода и нажмите Ввод</li>
+				<li>Чтобы удалить один пункт, наведите на него и нажмите на значок корзины</li>
+				<li>Чтобы удалить все списки дел, нажмите "Очистить"</li>
+				<li>Нажмите "Сохранить", чтобы сохранить список дел на потом</li>
+			</ul>
+		</div>
 	</div>
 </body>
 
