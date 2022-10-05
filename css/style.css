@@ -127,9 +127,35 @@ body {
 .button__show-tips {
 }
 .overlay {
-	display: none;
+	height: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	transition: 0.5s;
+	/* overflow-x: hidden; */
 }
 .overlay__close-tips {
+	position: absolute;
+	top: 15px;
+	right: 40px;
+	font-size: 60px;
+	color: #86a8e7;
+	cursor: pointer;
+}
+.overlay li {
+	padding: 8px;
+	list-style-type: circle;
+	font-size: 30px;
+	color: #818181;
+	display: block;
 }
 .tips {
+	position: relative;
+	top: 20%;
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
 }
