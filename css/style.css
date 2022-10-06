@@ -135,7 +135,7 @@ body {
 	top: 0;
 	background-color: rgba(0, 0, 0, 0.7);
 	transition: 0.5s;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 }
 .overlay__close-tips {
 	position: absolute;
