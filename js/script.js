@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const buttonSave = document.querySelector('.button__save');
 	const todos = document.querySelector('.todos');
 
-	function createTodo() {
+	function createTask() {
 		let taskText = taskInput.value;
 
 		let taskHtml = `
@@ -22,9 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	taskInput.addEventListener('keydown', (event) => {
 		if (event.code === 'Enter') {
-			createTodo();
+			createTask();
 		}
 	});
 
-	buttonSave.addEventListener('click', createTodo);
+	buttonSave.addEventListener('click', createTask);
 });
