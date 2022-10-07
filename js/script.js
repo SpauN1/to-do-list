@@ -20,5 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
 		taskInput.focus();
 	}
 
+	taskInput.addEventListener('keydown', (event) => {
+		if (event.code === 'Enter') {
+			createTodo();
+		}
+	});
+
 	buttonSave.addEventListener('click', createTodo);
 });
