@@ -1,10 +1,15 @@
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
-	const taskInput = document.querySelector('.input');
-	const buttonSave = document.querySelector('.button__save');
-	const todos = document.querySelector('.todos');
-	const clearButton = document.querySelector('.button__clear');
+	const taskInput = document.querySelector('.input'),
+		buttonSave = document.querySelector('.button__save'),
+		todos = document.querySelector('.todos'),
+		clearButton = document.querySelector('.button__clear'),
+		showTipsButton = document.querySelector('.button__show-tips'),
+		closeTipsButton = document.querySelector('.overlay__close-tips'),
+		overlay = document.querySelector('.overlay'),
+		pencil = document.querySelector('#pensil');
+		
 
 	function createTask() {
 		let taskText = taskInput.value;
@@ -28,8 +33,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	taskInput.addEventListener('keydown', (event) => {
-		if (event.code === 'Enter') {
+	taskInput.addEventListener('keydown', (e) => {
+		if (e.code === 'Enter') {
 			createTask();
 		}
 	});
@@ -40,5 +45,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	clearButton.addEventListener('click', () => {
 		todos.innerHTML = '';
+	});
+
+	showTipsButton.addEventListener('click', function () {
+		overlay.classList.add('overlay__show');
+		overlay.classList.remove('overlay__hide');
+	});
+
+	closeTipsButton.addEventListener('click', () => {
+		overlay.classList.remove('overlay__show');
+		overlay.classList.add('overlay__hide');
+	});
+
+	pencil.addEventListener('click', function () {
+		taskInput.classList.toggle('display');
 	});
 });

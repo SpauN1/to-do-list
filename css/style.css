@@ -137,6 +137,12 @@ body {
 	transition: 0.5s;
 	overflow-x: hidden;
 }
+.overlay__show {
+	height: 100%;
+}
+.overlay__hide {
+	height: 0%;
+}
 .overlay__close-tips {
 	position: absolute;
 	top: 15px;
@@ -158,4 +164,7 @@ body {
 	width: 100%;
 	text-align: center;
 	margin-top: 25px;
+}
+.display{
+	display: none;
 }
