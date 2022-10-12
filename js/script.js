@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		closeTipsButton = document.querySelector('.overlay__close-tips'),
 		overlay = document.querySelector('.overlay'),
 		pencil = document.querySelector('#pensil');
-		
 
 	function createTask() {
 		let taskText = taskInput.value;
@@ -57,7 +56,15 @@ window.addEventListener('DOMContentLoaded', () => {
 		overlay.classList.add('overlay__hide');
 	});
 
-	pencil.addEventListener('click', function () {
-		taskInput.classList.toggle('display');
+	pencil.addEventListener('click', () => {
+		pencil.classList.toggle('on');
+
+		if (pencil.classList.contains('on')) {
+			taskInput.classList.add('input__hide');
+			taskInput.classList.remove('input__show');
+		} else {
+			taskInput.classList.remove('input__hide');
+			taskInput.classList.add('input__show');
+		}
 	});
 });
