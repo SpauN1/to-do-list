@@ -48,12 +48,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	showTipsButton.addEventListener('click', function () {
 		overlay.classList.add('overlay__show');
-		overlay.classList.remove('overlay__hide');
 	});
 
-	closeTipsButton.addEventListener('click', () => {
+	function closeTips() {
 		overlay.classList.remove('overlay__show');
-		overlay.classList.add('overlay__hide');
+	}
+
+	closeTipsButton.addEventListener('click', () => {
+		closeTips();
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.code === 'Escape') {
+			closeTips();
+		}
 	});
 
 	pencil.addEventListener('click', () => {
