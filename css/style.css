@@ -6,6 +6,10 @@
 	border: 0;
 	box-sizing: border-box;
 }
+:focus,
+:active {
+	outline: none;
+}
 a {
 	text-decoration: none;
 }
@@ -139,9 +143,6 @@ body {
 }
 .overlay__show {
 	height: 100%;
-}
-.overlay__hide {
-	height: 0%;
 }
 .overlay__close-tips {
 	position: absolute;
