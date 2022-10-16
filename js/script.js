@@ -25,9 +25,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		taskInput.focus();
 	}
 
-	function deleteTask(event) {
-		if (event.target.dataset.action === 'delete') {
-			const parentNode = event.target.closest('li');
+	function deleteTask(e) {
+		if (e.target.dataset.action === 'delete') {
+			const parentNode = e.target.closest('li');
 			parentNode.remove();
 		}
 	}
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		todos.innerHTML = '';
 	});
 
-	showTipsButton.addEventListener('click', function () {
+	showTipsButton.addEventListener('click', () => {
 		overlay.classList.add('overlay__show');
 	});
 
@@ -75,4 +75,12 @@ window.addEventListener('DOMContentLoaded', () => {
 			taskInput.classList.add('input__show');
 		}
 	});
+
+	function doneTask(e) {
+		if (e.target.tagName === 'LI') {
+			e.target.classList.toggle('checked');
+		}
+	}
+
+	todos.addEventListener('click', doneTask);
 });
