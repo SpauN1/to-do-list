@@ -92,7 +92,6 @@ body {
 .todos li:hover .todos-trash {
 	opacity: 1;
 	margin-left: 6px;
-	transition: 0.4 all ease;
 }
 .todos-text {
 	pointer-events: none;
