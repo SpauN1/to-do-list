@@ -89,17 +89,24 @@ body {
 .todos li:nth-child(2n) {
 	background: #edf1f5;
 }
-.todos li:hover span.todo-trash {
+.todos li:hover .todos-trash {
 	opacity: 1;
-	margin-left: 5px;
-	transition: 0.4s linear;
+	margin-left: 6px;
+	transition: 0.4 all ease;
 }
-.todo-text {
-	padding: 0 8px;
+.todos-text {
+	pointer-events: none;
+	margin-left: 4px;
 }
-.todo-trash {
+.todos-trash {
+	text-align: center;
+	height: 50px;
+	width: 0;
+	opacity: 0;
+	transition: 0.3s linear;
 }
 .fa-trash-alt {
+	color: #7f7fd5;
 }
 .buttons {
 	display: flex;
@@ -168,13 +175,17 @@ body {
 }
 .input__hide {
 	overflow: hidden;
-	transition: 0.4s ease;
 	height: 0px;
 	border: none;
+	transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s all;
 }
 .input__show {
 	overflow: visible;
-	transition: 0.4s ease;
 	height: 50px;
 	border: 3px solid gray;
+	transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s all;
+}
+.checked {
+	color: gray;
+	text-decoration: line-through;
 }
