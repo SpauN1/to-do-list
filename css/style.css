@@ -43,28 +43,31 @@ body {
 .todo {
 	display: flex;
 	flex-direction: column;
-	height: 95vh;
+	min-height: 95vh;
 	max-width: 450px;
 	box-shadow: 0 0 1em black;
 	background: white;
 	margin: 0px auto;
 }
 .title {
+	display: flex;
+	align-items: center;
 	text-transform: uppercase;
 	background: #86a8e7;
 	color: white;
-	padding: 16px 28px;
+	padding: 16px 26px;
 	font-size: 30px;
+	position: relative;
 }
 .fa-pencil-alt {
-	float: right;
-	padding-top: 8px;
+	position: absolute;
 	cursor: pointer;
+	right: 15px;
 }
 .input {
 	background: white;
 	width: 100%;
-	height: 50px;
+	min-height: 50px;
 	font-size: 20px;
 	padding-left: 25px;
 	border: 3px solid gray;
@@ -98,7 +101,6 @@ body {
 	margin-left: 4px;
 }
 .todos-trash {
-	text-align: center;
 	height: 50px;
 	width: 0;
 	opacity: 0;
@@ -130,12 +132,6 @@ body {
 	color: black;
 	border: 2px solid #86a8e7;
 }
-.button__save {
-}
-.button__clear {
-}
-.button__show-tips {
-}
 .overlay {
 	height: 0;
 	width: 100%;
@@ -143,7 +139,7 @@ body {
 	z-index: 1;
 	left: 0;
 	top: 0;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.8);
 	transition: 0.5s;
 	overflow-x: hidden;
 }
@@ -159,10 +155,10 @@ body {
 	cursor: pointer;
 }
 .overlay li {
-	padding: 8px;
-	list-style-type: circle;
+	text-align: center;
+	padding: 15px 20px;
 	font-size: 30px;
-	color: #818181;
+	color: #d6dbd5;
 	display: block;
 }
 .tips {
@@ -187,4 +183,28 @@ body {
 .checked {
 	color: gray;
 	text-decoration: line-through;
+}
+@media (max-width: 800px) {
+	.tips {
+		top: 12%;
+	}
+	.overlay li {
+		font-size: 26px;
+		padding: 15px 20px;
+	}
+}
+@media (max-width: 400px) {
+	.title {
+		padding: 14px 21px;
+		font-size: 24px;
+	}
+	.input {
+		padding-left: 20px;
+	}
+	.button {
+		padding: 5px 5px;
+	}
+	.overlay li {
+		font-size: 22px;
+	}
 }
