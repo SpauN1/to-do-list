@@ -14,8 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		let taskText = taskInput.value;
 
 		let taskHtml = `
-		<li><span class="todo-text">${taskText}</span><span class="todo-trash"><span
-		data-action="delete" class="fas fa-trash-alt"></span></span>
+		<li><span class="todos-trash"><span data-action="delete" class="fas fa-trash-alt"></span></span><span
+		class="todos-text">${taskText}</span>
 		</li>
 		`;
 
