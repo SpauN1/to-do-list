@@ -13,13 +13,19 @@ window.addEventListener('DOMContentLoaded', () => {
 	function createTask() {
 		let taskText = taskInput.value;
 
+		if (taskText.length >= 22) {
+			taskText = `${taskText.substring(0, 22)}...`;
+		}
+
 		let taskHtml = `
 		<li><span class="todos-trash"><span data-action="delete" class="fas fa-trash-alt"></span></span><span
 		class="todos-text">${taskText}</span>
 		</li>
 		`;
 
-		todos.insertAdjacentHTML('beforeend', taskHtml);
+		if (taskText) {
+			todos.insertAdjacentHTML('beforeend', taskHtml);
+		}
 
 		taskInput.value = '';
 		taskInput.focus();
