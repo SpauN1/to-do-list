@@ -105,9 +105,18 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 
 	function doneTask(e) {
-		if (e.target.tagName === 'LI') {
+		const target = e.target;
+		if (target.tagName === 'LI') {
 			e.target.classList.toggle('done');
 		}
+	
+		const id = Number(target.id);
+		const task = tasks.find(function (task) {
+			if (task.id === id) {
+				return true;
+			}
+		});
+		task.done = !task.done;
 	}
 
 	todos.addEventListener('click', doneTask);
