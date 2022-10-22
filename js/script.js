@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		overlay = document.querySelector('.overlay'),
 		pencil = document.querySelector('#pensil');
 
+	let tasks = [];
+
 	function createTask() {
 		let taskText = taskInput.value;
 
@@ -17,9 +19,19 @@ window.addEventListener('DOMContentLoaded', () => {
 			taskText = `${taskText.substring(0, 22)}...`;
 		}
 
+		const newTask = {
+			id: Date.now(),
+			text: taskText,
+			done: false,
+		};
+
+		tasks.push(newTask);
+
+		const cssClass = newTask.done ? 'todos__item done' : 'todos__item"';
+
 		let taskHtml = `
-		<li><span class="todos-trash"><span data-action="delete" class="fas fa-trash-alt"></span></span><span
-		class="todos-text">${taskText}</span>
+		<li id="${newTask.id}" class="${cssClass}"><span class="todos-trash"><span data-action="delete" class="fas fa-trash-alt"></span></span><span
+		class="todos-text">${newTask.text}</span>
 		</li>
 		`;
 
@@ -34,6 +46,16 @@ window.addEventListener('DOMContentLoaded', () => {
 	function deleteTask(e) {
 		if (e.target.dataset.action === 'delete') {
 			const parentNode = e.target.closest('li');
+
+			const id = +parentNode.id;
+
+			const index = tasks.findIndex((task) => {
+				if (task.id === id) {
+					return true;
+				}
+			});
+
+			tasks.splice(index, 1);
 			parentNode.remove();
 		}
 	}
@@ -84,7 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	function doneTask(e) {
 		if (e.target.tagName === 'LI') {
-			e.target.classList.toggle('checked');
+			e.target.classList.toggle('done');
 		}
 	}
 

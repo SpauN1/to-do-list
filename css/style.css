@@ -82,7 +82,7 @@ body {
 .todos {
 	flex: 1 1 auto;
 }
-.todos li {
+.todos__item {
 	background: rgb(247, 247, 247);
 	height: 50px;
 	line-height: 50px;
@@ -178,7 +178,7 @@ body {
 	border: 3px solid gray;
 	transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s all;
 }
-.checked {
+.done {
 	color: gray;
 	text-decoration: line-through;
 }
