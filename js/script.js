@@ -48,12 +48,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			const parentNode = e.target.closest('li');
 
 			const id = +parentNode.id;
-
-			const index = tasks.findIndex((task) => {
-				if (task.id === id) {
-					return true;
-				}
-			});
+      
+			const index = tasks.findIndex((task) => task.id === id)
 
 			tasks.splice(index, 1);
 			parentNode.remove();
