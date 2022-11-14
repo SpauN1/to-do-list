@@ -15,8 +15,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	function createTask() {
 		let taskText = taskInput.value;
 
-		if (taskText.length >= 22) {
-			taskText = `${taskText.substring(0, 22)}...`;
+		if (taskText.length >= 27) {
+			taskText = `${taskText.substring(0, 27)}...`;
 		}
 
 		const newTask = {
