@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		const cssClass = newTask.done ? 'todos__item done' : 'todos__item"';
 
 		let taskHtml = `
-		<li id="${newTask.id}" class="${cssClass}"><span class="todos-trash"><span data-action="delete" class="fas fa-trash-alt"></span></span><span
+		<li id="${newTask.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
 		class="todos-text">${newTask.text}</span>
 		</li>
 		`;
