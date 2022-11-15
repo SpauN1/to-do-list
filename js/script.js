@@ -29,14 +29,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		const cssClass = newTask.done ? 'todos__item done' : 'todos__item"';
 
-		let taskHtml = `
+		let taskHTML = `
 		<li id="${newTask.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
 		class="todos-text">${newTask.text}</span>
 		</li>
 		`;
 
 		if (taskText) {
-			todos.insertAdjacentHTML('beforeend', taskHtml);
+			todos.insertAdjacentHTML('beforeend', taskHTML);
 		}
 
 		taskInput.value = '';
@@ -48,8 +48,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			const parentNode = e.target.closest('li');
 
 			const id = +parentNode.id;
-      
-			const index = tasks.findIndex((task) => task.id === id)
+
+			const index = tasks.findIndex((task) => task.id === id);
 
 			tasks.splice(index, 1);
 			parentNode.remove();
@@ -105,13 +105,10 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (target.tagName === 'LI') {
 			e.target.classList.toggle('done');
 		}
-	
+
 		const id = Number(target.id);
-		const task = tasks.find(function (task) {
-			if (task.id === id) {
-				return true;
-			}
-		});
+		const task = tasks.find((task) => task.id === id);
+
 		task.done = !task.done;
 	}
 
