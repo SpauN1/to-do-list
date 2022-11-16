@@ -43,8 +43,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			done: false,
 		};
 
-		tasks.push(newTask);
-
 		const cssClass = newTask.done ? 'todos__item done' : 'todos__item"';
 
 		let taskHTML = `
@@ -54,6 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		`;
 
 		if (taskText) {
+			tasks.push(newTask);
 			todos.insertAdjacentHTML('beforeend', taskHTML);
 		}
 
