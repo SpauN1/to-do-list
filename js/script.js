@@ -12,6 +12,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	let tasks = [];
 
+	if (localStorage.getItem('tasks')) {
+		tasks = JSON.parse(localStorage.getItem('tasks'));
+	}
+
+	tasks.forEach((task) => {
+		const cssClass = task.done ? 'todos__item done' : 'todos__item"';
+
+		let taskHTML = `
+		<li id="${task.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
+		class="todos-text">${task.text}</span>
+		</li>
+		`;
+
+		if (task.text) {
+			todos.insertAdjacentHTML('beforeend', taskHTML);
+		}
+	});
+
 	function createTask() {
 		let taskText = taskInput.value;
 
@@ -41,6 +59,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		taskInput.value = '';
 		taskInput.focus();
+
+		saveToLocalStorage();
 	}
 
 	function deleteTask(e) {
@@ -54,6 +74,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			tasks.splice(index, 1);
 			parentNode.remove();
 		}
+
+		saveToLocalStorage();
 	}
 
 	taskInput.addEventListener('keydown', (e) => {
@@ -68,6 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	clearButton.addEventListener('click', () => {
 		todos.innerHTML = '';
+		localStorage.clear();
 	});
 
 	showTipsButton.addEventListener('click', () => {
@@ -113,4 +136,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	todos.addEventListener('click', doneTask);
+
+	function saveToLocalStorage() {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
 });
