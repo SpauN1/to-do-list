@@ -14,21 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	if (localStorage.getItem('tasks')) {
 		tasks = JSON.parse(localStorage.getItem('tasks'));
+		tasks.forEach((task) => renderTask(task));
 	}
-
-	tasks.forEach((task) => {
-		const cssClass = task.done ? 'todos__item done' : 'todos__item"';
-
-		let taskHTML = `
-		<li id="${task.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
-		class="todos-text">${task.text}</span>
-		</li>
-		`;
-
-		if (task.text) {
-			todos.insertAdjacentHTML('beforeend', taskHTML);
-		}
-	});
 
 	function createTask() {
 		let taskText = taskInput.value;
@@ -43,22 +30,14 @@ window.addEventListener('DOMContentLoaded', () => {
 			done: false,
 		};
 
-		const cssClass = newTask.done ? 'todos__item done' : 'todos__item"';
-
-		let taskHTML = `
-		<li id="${newTask.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
-		class="todos-text">${newTask.text}</span>
-		</li>
-		`;
-
 		if (taskText) {
 			tasks.push(newTask);
-			todos.insertAdjacentHTML('beforeend', taskHTML);
 		}
 
 		taskInput.value = '';
 		taskInput.focus();
 
+		renderTask(newTask);
 		saveToLocalStorage();
 	}
 
@@ -126,19 +105,32 @@ window.addEventListener('DOMContentLoaded', () => {
 		const target = e.target;
 		if (target.tagName === 'LI') {
 			e.target.classList.toggle('done');
-			
+
 			const id = Number(target.id);
 			const task = tasks.find((task) => task.id === id);
-	
-			task.done = !task.done;
-		}
 
-		saveToLocalStorage()
+			task.done = !task.done;
+			saveToLocalStorage();
+		}
 	}
-	
+
 	todos.addEventListener('click', doneTask);
 
 	function saveToLocalStorage() {
 		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
+
+	function renderTask(task) {
+		const cssClass = task.done ? 'todos__item done' : 'todos__item"';
+
+		let taskHTML = `
+		<li id="${task.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
+		class="todos-text">${task.text}</span>
+		</li>
+		`;
+
+		if (task.text) {
+			todos.insertAdjacentHTML('beforeend', taskHTML);
+		}
 	}
 });
