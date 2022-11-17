@@ -126,14 +126,16 @@ window.addEventListener('DOMContentLoaded', () => {
 		const target = e.target;
 		if (target.tagName === 'LI') {
 			e.target.classList.toggle('done');
+			
+			const id = Number(target.id);
+			const task = tasks.find((task) => task.id === id);
+	
+			task.done = !task.done;
 		}
 
-		const id = Number(target.id);
-		const task = tasks.find((task) => task.id === id);
-
-		task.done = !task.done;
+		saveToLocalStorage()
 	}
-
+	
 	todos.addEventListener('click', doneTask);
 
 	function saveToLocalStorage() {
