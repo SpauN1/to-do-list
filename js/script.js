@@ -17,6 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		tasks.forEach((task) => renderTask(task));
 	}
 
+	checkEmptyList();
+
 	function createTask() {
 		let taskText = taskInput.value;
 
@@ -32,13 +34,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		if (taskText) {
 			tasks.push(newTask);
+			checkEmptyList();
 		}
 
 		taskInput.value = '';
 		taskInput.focus();
 
-		renderTask(newTask);
 		saveToLocalStorage();
+		renderTask(newTask);
 	}
 
 	function deleteTask(e) {
@@ -51,6 +54,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			tasks.splice(index, 1);
 			parentNode.remove();
+
+			checkEmptyList();
 		}
 
 		saveToLocalStorage();
@@ -121,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function renderTask(task) {
-		const cssClass = task.done ? 'todos__item done' : 'todos__item"';
+		const cssClass = task.done ? 'todos__item done' : 'todos__item';
 
 		let taskHTML = `
 		<li id="${task.id}" class="${cssClass}"><span class="todos-trash"><i data-action="delete" class="fas fa-trash-alt"></i></span><span
@@ -131,6 +136,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		if (task.text) {
 			todos.insertAdjacentHTML('beforeend', taskHTML);
+		}
+	}
+
+	function checkEmptyList() {
+		if (tasks.length === 0) {
+			const emptyListHTML = `
+			<li id="emtyList" class="todos__item"><span class="todos-trash"><i data-action="delete"
+					class="fas fa-trash-alt"></i></span><span class="todos-text">Пойти в кино</span>
+			</li>
+			`;
+			todos.insertAdjacentHTML('afterbegin', emptyListHTML);
+		}
+
+		if (tasks.length > 0) {
+			const emptyListElement = document.querySelector('#emtyList');
+			emptyListElement ? emptyListElement.remove() : null;
 		}
 	}
 });
