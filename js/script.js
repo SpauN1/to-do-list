@@ -107,15 +107,19 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 
 	function doneTask(e) {
-		const target = e.target;
-		if (target.tagName === 'LI') {
-			e.target.classList.toggle('done');
+		try {
+			const target = e.target;
+			if (target.tagName === 'LI') {
+				e.target.classList.toggle('done');
 
-			const id = Number(target.id);
-			const task = tasks.find((task) => task.id === id);
+				const id = Number(target.id);
+				const task = tasks.find((task) => task.id === id);
 
-			task.done = !task.done;
-			saveToLocalStorage();
+				task.done = !task.done;
+				saveToLocalStorage();
+			}
+		} catch (error) {
+			console.log(error.message);
 		}
 	}
 
