@@ -74,6 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	clearButton.addEventListener('click', () => {
 		todos.innerHTML = '';
 		localStorage.clear();
+		location.reload();
 	});
 
 	showTipsButton.addEventListener('click', () => {
@@ -147,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (tasks.length === 0) {
 			const emptyListHTML = `
 			<li id="emtyList" class="todos__item"><span class="todos-trash"><i data-action="delete"
-					class="fas fa-trash-alt"></i></span><span class="todos-text">Пойти в кино</span>
+					class="fas fa-trash-alt"></i></span><span class="todos-text">Добавьте задачу</span>
 			</li>
 			`;
 			todos.insertAdjacentHTML('afterbegin', emptyListHTML);
