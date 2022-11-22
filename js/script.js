@@ -61,52 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		saveToLocalStorage();
 	}
 
-	taskInput.addEventListener('keydown', (e) => {
-		if (e.code === 'Enter') {
-			createTask();
-		}
-	});
-
-	buttonSave.addEventListener('click', createTask);
-
-	todos.addEventListener('click', deleteTask);
-
-	clearButton.addEventListener('click', () => {
-		todos.innerHTML = '';
-		localStorage.clear();
-		location.reload();
-	});
-
-	showTipsButton.addEventListener('click', () => {
-		overlay.classList.add('overlay__show');
-	});
-
-	function closeTips() {
-		overlay.classList.remove('overlay__show');
-	}
-
-	closeTipsButton.addEventListener('click', () => {
-		closeTips();
-	});
-
-	document.addEventListener('keydown', (e) => {
-		if (e.code === 'Escape') {
-			closeTips();
-		}
-	});
-
-	pencil.addEventListener('click', () => {
-		pencil.classList.toggle('on');
-
-		if (pencil.classList.contains('on')) {
-			taskInput.classList.add('input__hide');
-			taskInput.classList.remove('input__show');
-		} else {
-			taskInput.classList.remove('input__hide');
-			taskInput.classList.add('input__show');
-		}
-	});
-
 	function doneTask(e) {
 		try {
 			const target = e.target;
@@ -122,12 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		} catch (error) {
 			console.log(error.message);
 		}
-	}
-
-	todos.addEventListener('click', doneTask);
-
-	function saveToLocalStorage() {
-		localStorage.setItem('tasks', JSON.stringify(tasks));
 	}
 
 	function renderTask(task) {
@@ -159,4 +107,56 @@ window.addEventListener('DOMContentLoaded', () => {
 			emptyListElement ? emptyListElement.remove() : null;
 		}
 	}
+
+	function saveToLocalStorage() {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
+
+	function closeTips() {
+		overlay.classList.remove('overlay__show');
+	}
+
+	closeTipsButton.addEventListener('click', () => {
+		closeTips();
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.code === 'Escape') {
+			closeTips();
+		}
+	});
+
+	taskInput.addEventListener('keydown', (e) => {
+		if (e.code === 'Enter') {
+			createTask();
+		}
+	});
+
+	buttonSave.addEventListener('click', createTask);
+
+	todos.addEventListener('click', deleteTask);
+
+	todos.addEventListener('click', doneTask);
+
+	clearButton.addEventListener('click', () => {
+		todos.innerHTML = '';
+		localStorage.clear();
+		location.reload();
+	});
+
+	showTipsButton.addEventListener('click', () => {
+		overlay.classList.add('overlay__show');
+	});
+
+	pencil.addEventListener('click', () => {
+		pencil.classList.toggle('on');
+
+		if (pencil.classList.contains('on')) {
+			taskInput.classList.add('input__hide');
+			taskInput.classList.remove('input__show');
+		} else {
+			taskInput.classList.remove('input__hide');
+			taskInput.classList.add('input__show');
+		}
+	});
 });
